@@ -517,7 +517,7 @@
     <div class="seal-strip" aria-hidden="true">
       <span class="stamp">事半功倍</span>
       <span class="stamp">塞翁失馬</span>
-      <span class="stamp">路遙知馬力</span>
+      <span class="stamp">厚積薄發</span>
     </div>
   </header>
 
@@ -539,21 +539,66 @@
       pinyin:   "shì bàn gōng bèi",
       literal:  "Half the work, twice the result.",
       meaning:  "A wise method accomplishes more with less effort. Work smarter, not harder.",
-      origin:   "From 《孟子·盡心上》: 「故事半古之人，功必倍之。」— Those who use the methods of the ancients achieve double the result with half the effort."
+      origin:   "From 《孟子·盡心上》: 「故事半古之人，功必倍之。」— Those who use the methods of the ancients achieve double the result with half the effort.",
+      chars_breakdown: [
+        {char:"事", pinyin:"shì", meaning:"effort / task"},
+        {char:"半", pinyin:"bàn", meaning:"half"},
+        {char:"功", pinyin:"gōng", meaning:"achievement"},
+        {char:"倍", pinyin:"bèi", meaning:"double"}
+      ]
     },
     saiwengshima: {
       chars:    "塞翁失馬",
       pinyin:   "sài wēng shī mǎ",
       literal:  "The old man at the border loses his horse.",
       meaning:  "A misfortune may turn out to be a blessing; fortune is uncertain and often reverses.",
-      origin:   "From 《淮南子·人間訓》: an old man's horse runs away; neighbors pity him. The horse returns with a herd of wild horses, and they congratulate him. When his son breaks his leg riding one, they pity him again — but the conscription comes, and the son is spared."
+      origin:   "From 《淮南子·人間訓》: an old man's horse runs away; neighbors pity him. The horse returns with a herd of wild horses, and they congratulate him. When his son breaks his leg riding one, they pity him again — but the conscription comes, and the son is spared.",
+      chars_breakdown: [
+        {char:"塞", pinyin:"sài", meaning:"frontier fort"},
+        {char:"翁", pinyin:"wēng", meaning:"old man"},
+        {char:"失", pinyin:"shī", meaning:"to lose"},
+        {char:"馬", pinyin:"mǎ", meaning:"horse"}
+      ]
     },
-    luyaozhimali: {
-      chars:    "路遙知馬力",
-      pinyin:   "lù yáo zhī mǎ lì",
-      literal:  "A long road tests a horse's strength.",
-      meaning:  "Time and hardship reveal a person's true quality. A friend of the road is a friend indeed.",
-      origin:   "A folk saying from Yuan-dynasty China, often paired with 日久見人心 — \"time reveals the heart.\" Marco's own journey, nearly twenty-four years long, is itself a story of this proverb."
+    houjibofa: {
+      chars:   "厚積薄發",
+      pinyin:  "hòu jī bó fā",
+      literal: "Accumulate deep; release sparingly.",
+      meaning: "Great preparation, quietly built, leads to great outcomes. True resources grow slowly and are spent wisely.",
+      origin:  "From Su Shi's 《稼說》: 「博觀而約取，厚積而薄發。」— 'Read widely and take little; accumulate much and release sparingly.' HSK 6 confirmed; gaokao favorite.",
+      chars_breakdown: [
+        {char:"厚", pinyin:"hòu", meaning:"thick, deep, substantial"},
+        {char:"積", pinyin:"jī",  meaning:"accumulate, store up"},
+        {char:"薄", pinyin:"bó",  meaning:"thin, little, sparse"},
+        {char:"發", pinyin:"fā",  meaning:"release, express, send out"}
+      ]
+    },
+    jiyuqiucheng: {
+      chars: "急於求成",
+      pinyin: "jí yú qiú chéng",
+      literal: "Urgent to achieve success.",
+      meaning: "Hasty in seeking results; impatience that causes its own failure.",
+      origin: "Common in classical Chinese writing; pairs with 欲速則不達.",
+      chars_breakdown: [
+        {char:"急", pinyin:"jí",   meaning:"urgent, anxious"},
+        {char:"於", pinyin:"yú",   meaning:"in, at, toward"},
+        {char:"求", pinyin:"qiú",  meaning:"to seek"},
+        {char:"成", pinyin:"chéng", meaning:"success, completion"}
+      ]
+    },
+    yusuzebuda: {
+      chars: "欲速則不達",
+      pinyin: "yù sù zé bù dá",
+      literal: "Desiring speed, one does not arrive.",
+      meaning: "He who desires speed does not arrive. Rushing guarantees failure.",
+      origin: "From 《論語·子路》: Confucius — 無欲速，無見小利. 'Do not desire speed; do not attend to small gains.'",
+      chars_breakdown: [
+        {char:"欲", pinyin:"yù", meaning:"to desire"},
+        {char:"速", pinyin:"sù", meaning:"speed"},
+        {char:"則", pinyin:"zé", meaning:"then, therefore"},
+        {char:"不", pinyin:"bù", meaning:"not"},
+        {char:"達", pinyin:"dá", meaning:"to arrive"}
+      ]
     }
   };
 
@@ -606,11 +651,11 @@
       narration: [
         "You stand at the edge of the Dasht-i Lut, the empty desert. Heat ripples the sand into the shape of a distant sea.",
         "A merchant in a stained cotton coat approaches your caravan. He has no water of his own, no camels, no guards. He offers, in exchange for passage to Bukhara, his company — and his memory of every well and safehouse for a thousand miles.",
-        "Your father's brother Maffeo looks him over. <em>「路遙知馬力。」</em><span class=\"inline-pinyin\">lù yáo zhī mǎ lì</span> A long road tests a horse's strength — and a man's, he adds."
+        "Your father's brother Maffeo looks him over. <em>「厚積薄發。」</em><span class=\"inline-pinyin\">hòu jī bó fā</span> Accumulate deep; release slowly — and a man who knows every well between here and Bukhara has been accumulating for a very long time."
       ],
       choices: [
         { label: "Refuse. You cannot afford to feed a stranger, and a man alone in the desert is a man with a story.", next: "pamir" },
-        { label: "Let the merchant walk beside you. You have water to spare, and the road is long.", next: "pamir", chengyu: "luyaozhimali" }
+        { label: "Let the merchant walk beside you. You have water to spare, and the road is long.", next: "pamir", chengyu: "houjibofa" }
       ]
     },
 
@@ -814,7 +859,7 @@
     const v = variants[variant];
 
     // glossary — show ALL 3 chengyu, mark which were earned in this playthrough
-    const allKeys = ["saiwengshima", "luyaozhimali", "shibangongbei"];
+    const allKeys = ["saiwengshima", "houjibofa", "shibangongbei"];
     const glossaryHtml = allKeys.map(k => {
       const c = CHENGYU[k];
       const earned = state.earnedChengyu.has(k);
