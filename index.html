@@ -194,6 +194,7 @@
   }
   .narration p { margin: 0 0 1.1em; }
   .narration p:last-child { margin-bottom: 0; }
+  .inline-pinyin { font-size: 0.78em; font-style: italic; color: var(--text-muted); margin-left: 0.4em; }
 
   /* ink-brushed choice buttons */
   .choices {
@@ -572,7 +573,7 @@
         "You are seventeen. The lagoon is grey this morning, and the salt wind off the Adriatic carries the smell of far places — cinnamon, frankincense, dust.",
         "Your father Niccolò and your uncle Maffeo are loading a small fortune in Venetian glass onto a galley bound for Acre. They mean to return to the court of Kublai Khan, and they mean to take you with them.",
         "The road ahead is long, and very few who set out ever come back.",
-        "A traveler gives you a small piece of advice before the oars splash: <em>「不積跬步，無以至千里。」</em> A journey of ten thousand miles begins with a single step."
+        "A traveler gives you a small piece of advice before the oars splash: <em>「不積跬步，無以至千里。」</em><span class=\"inline-pinyin\">bù jī kuǐ bù, wú yǐ zhì qiān lǐ</span> A journey of ten thousand miles begins with a single step."
       ],
       choices: [
         { label: "Take the name your mother gave you, and step aboard.", next: "acre" }
@@ -587,8 +588,8 @@
       subtitle: "Two roads to the East; one looks faster than it is.",
       narration: [
         "In the Acre marketplace you trade a Venetian mirror for passage onward. A Genoese captain offers you a berth on a Black Sea galleon that will reach Hormuz in eight weeks — half the time of the overland caravan.",
-        "Your uncle frowns at the galleon's barnacled hull. <em>「急於求成，反而多險。」</em> Hurry invites trouble, he says. The caravan is slower, but the roads are well-worn and the watchtowers are manned by friends of the Khan.",
-        "The captain drums his fingers. <em>「塞翁失馬，安知非福。」</em> The old man at the border lost his horse, the proverb goes — and the loss turned into a herd."
+        "Your uncle frowns at the galleon's barnacled hull. <em>「急於求成，反而多險。」</em><span class=\"inline-pinyin\">jí yú qiú chéng, fǎn ér duō xiǎn</span> Hurry invites trouble, he says. The caravan is slower, but the roads are well-worn and the watchtowers are manned by friends of the Khan.",
+        "The captain drums his fingers. <em>「塞翁失馬，安知非福。」</em><span class=\"inline-pinyin\">sài wēng shī mǎ, ān zhī fēi fú</span> The old man at the border lost his horse, the proverb goes — and the loss turned into a herd."
       ],
       choices: [
         { label: "Take the galleon. Eight weeks beats sixteen; you'll make up for lost time later.", next: "hormuz" },
@@ -605,7 +606,7 @@
       narration: [
         "You stand at the edge of the Dasht-i Lut, the empty desert. Heat ripples the sand into the shape of a distant sea.",
         "A merchant in a stained cotton coat approaches your caravan. He has no water of his own, no camels, no guards. He offers, in exchange for passage to Bukhara, his company — and his memory of every well and safehouse for a thousand miles.",
-        "Your father's brother Maffeo looks him over. <em>「路遙知馬力。」</em> A long road tests a horse's strength — and a man's, he adds."
+        "Your father's brother Maffeo looks him over. <em>「路遙知馬力。」</em><span class=\"inline-pinyin\">lù yáo zhī mǎ lì</span> A long road tests a horse's strength — and a man's, he adds."
       ],
       choices: [
         { label: "Refuse. You cannot afford to feed a stranger, and a man alone in the desert is a man with a story.", next: "pamir" },
@@ -621,7 +622,7 @@
       subtitle: "Above the clouds, a choice about pace.",
       narration: [
         "The Pamir pass rises to fifteen thousand feet. The horses grow short of breath; the mules stop to rest every hundred paces. Bandits, you are told, have been seen on the southern trail — moving fast, eager to catch a laden caravan.",
-        "Maffeo looks at the animals, then at the sky. <em>「欲速則不達。」</em> He who is in a hurry does not arrive — and adds, quietly, that a clever pace now means arriving in good order, and in good order means arriving first."
+        "Maffeo looks at the animals, then at the sky. <em>「欲速則不達。」</em><span class=\"inline-pinyin\">yù sù zé bù dá</span> He who is in a hurry does not arrive — and adds, quietly, that a clever pace now means arriving in good order, and in good order means arriving first."
       ],
       choices: [
         { label: "Push hard through the night. Beat the bandits to the next valley, and sleep once you're safe.", next: "kashgar" },
@@ -655,7 +656,7 @@
         "The throne room of Kublai Khan is a sea of silk. The Great Khan is old, and his eyes are patient.",
         "An interpreter whispers: the Khan will receive your gifts in private, but only one Venetian knows the proper ceremony. You are that Venetian.",
         "The gifts — a golden drinking cup, a small book of hours bound in red, a sample of Venetian glass — are laid out on a tray before you. You may present them one by one, with a story for each, or you may lay them all out at once and bow.",
-        "The Khan's eyes rest on you. He says, in a voice like a slow river: <em>「不患無位，患所以立。」</em> Do not worry about the rank; worry about whether you deserve it."
+        "The Khan's eyes rest on you. He says, in a voice like a slow river: <em>「不患無位，患所以立。」</em><span class=\"inline-pinyin\">bù huàn wú wèi, huàn suǒ yǐ lì</span> Do not worry about the rank; worry about whether you deserve it."
       ],
       choices: [
         { label: "Present each gift with its story. A small ceremony is worth more than a great haste.", next: "ending" },
@@ -672,7 +673,7 @@
       ending: true,
       narration: [
         "You are forty-one years old. You carry, in a leather satchel that has been repaired in Samarqand, Kashgar, and Hangzhou, a small book — in a language you have taught yourself to write — that tells the story of every mile.",
-        "The Great Khan gave you a golden tablet, a <em>paiza</em>, that will open any door between here and the Black Sea. He said, in his slow voice: <em>「回來告訴他們，東方不是夢。」</em> Go back and tell them the East is not a dream.",
+        "The Great Khan gave you a golden tablet, a <em>paiza</em>, that will open any door between here and the Black Sea. He said, in his slow voice: <em>「回來告訴他們，東方不是夢。」</em><span class=\"inline-pinyin\">huí lái gào sù tā men, dōng fāng bù shì mèng</span> Go back and tell them the East is not a dream.",
         "You will be a prisoner of Genoa for a year, and in a Genoese jail you will dictate your book to a writer of romances. The book will be called <em>Il Milione</em>. It will change the map of the world."
       ]
     }
