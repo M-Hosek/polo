@@ -734,7 +734,7 @@
       locationCn: "威尼斯",
       locationEn: "Venice · 1271",
       title: "The Departure",
-      subtitle: "In which a young man is given a name for the road.",
+      subtitle: "The oars are in the water. There is no gate to come back through.",
       prologue: true,
       narration: [
         "You are seventeen. The lagoon is grey this morning, and the salt wind off the Adriatic carries the smell of far places — cinnamon, frankincense, dust.",
@@ -743,7 +743,7 @@
         "A traveler gives you a small piece of advice before the oars splash: <em>「不積跬步，無以至千里。」</em><span class=\"inline-pinyin\">bù jī kuǐ bù, wú yǐ zhì qiān lǐ</span> A journey of ten thousand miles begins with a single step."
       ],
       choices: [
-        { label: "Take the name your mother gave you, and step aboard.", next: "acre" }
+        { label: "Step aboard. Leave Venice behind. It will not look the same when you return.", next: "acre" }
       ]
     },
 
@@ -752,15 +752,15 @@
       locationCn: "阿克里",
       locationEn: "Acre · the Levant",
       title: "The Crossroads",
-      subtitle: "Two roads to the East; one looks faster than it is.",
+      subtitle: "One road home. Two ways to lose it.",
       narration: [
         "In the Acre marketplace you trade a Venetian mirror for passage onward. A Genoese captain offers you a berth on a Black Sea galleon that will reach Hormuz in eight weeks — half the time of the overland caravan.",
         "Your uncle frowns at the galleon's barnacled hull. <span class=\"chengyu-tip\" data-key=\"jiyuqiucheng\" tabindex=\"0\"><em>「急於求成，反而多險。」</em><span class=\"inline-pinyin\">jí yú qiú chéng, fǎn ér duō xiǎn</span></span> Hurry invites trouble, he says. The caravan is slower, but the roads are well-worn and the watchtowers are manned by friends of the Khan.",
         "The captain drums his fingers. <span class=\"chengyu-tip\" data-key=\"saiwengshima\" tabindex=\"0\"><em>「塞翁失馬，安知非福。」</em><span class=\"inline-pinyin\">sài wēng shī mǎ, ān zhī fēi fú</span></span> The old man at the border lost his horse, the proverb goes — and the loss turned into a herd."
       ],
       choices: [
-        { label: "Take the galleon. Eight weeks beats sixteen; you'll make up for lost time later.", next: "hormuz" },
-        { label: "Follow your uncle. Take the overland caravan, slow and steady.", next: "hormuz", chengyu: "saiwengshima" }
+        { label: "Board the galleon. A gamble on speed — and on the sea not turning.", next: "hormuz" },
+        { label: "Walk with your uncle into the dust. Sixteen weeks of road, no shortcuts, no rescue.", next: "hormuz", chengyu: "saiwengshima" }
       ]
     },
 
@@ -769,15 +769,15 @@
       locationCn: "霍爾木茲",
       locationEn: "Hormuz · the Persian Gulf",
       title: "A Stranger's Offer",
-      subtitle: "A merchant in the desert asks to travel with you.",
+      subtitle: "He has nothing. He knows everything. You have to choose which matters.",
       narration: [
         "You stand at the edge of the Dasht-i Lut, the empty desert. Heat ripples the sand into the shape of a distant sea.",
         "A merchant in a stained cotton coat approaches your caravan. He has no water of his own, no camels, no guards. He offers, in exchange for passage to Bukhara, his company — and his memory of every well and safehouse for a thousand miles.",
         "Your father's brother Maffeo looks him over. <span class=\"chengyu-tip\" data-key=\"houjibofa\" tabindex=\"0\"><em>「厚積薄發。」</em><span class=\"inline-pinyin\">hòu jī bó fā</span></span> Accumulate deep; release slowly — and a man who knows every well between here and Bukhara has been accumulating for a very long time."
       ],
       choices: [
-        { label: "Refuse. You cannot afford to feed a stranger, and a man alone in the desert is a man with a story.", next: "pamir" },
-        { label: "Let the merchant walk beside you. You have water to spare, and the road is long.", next: "pamir", chengyu: "houjibofa" }
+        { label: "Turn him away. The desert chose him, not you.", next: "pamir" },
+        { label: "Take him in. Water spent now, knowledge kept forever — if he's telling the truth.", next: "pamir", chengyu: "houjibofa" }
       ]
     },
 
@@ -786,14 +786,14 @@
       locationCn: "蔥嶺",
       locationEn: "The Pamir Mountains",
       title: "The High Pass",
-      subtitle: "Above the clouds, a choice about pace.",
+      subtitle: "The bandits move fast. The mountain does not care.",
       narration: [
         "The Pamir pass rises to fifteen thousand feet. The horses grow short of breath; the mules stop to rest every hundred paces. Bandits, you are told, have been seen on the southern trail — moving fast, eager to catch a laden caravan.",
         "Maffeo looks at the animals, then at the sky. <span class=\"chengyu-tip\" data-key=\"yusuzebuda\" tabindex=\"0\"><em>「欲速則不達。」</em><span class=\"inline-pinyin\">yù sù zé bù dá</span></span> He who is in a hurry does not arrive — and adds, quietly, that a clever pace now means arriving in good order, and in good order means arriving first."
       ],
       choices: [
-        { label: "Push hard through the night. Beat the bandits to the next valley, and sleep once you're safe.", next: "kashgar" },
-        { label: "Rest the caravan. Move at the pace of the slowest mule, and trust that calm arrives sooner than panic.", next: "kashgar", chengyu: "shibangongbei" }
+        { label: "Drive the animals through the night. They may not survive it. Neither may you.", next: "kashgar" },
+        { label: "Hold your pace. Let the bandits burn themselves out chasing a caravan that isn't racing.", next: "kashgar", chengyu: "shibangongbei" }
       ]
     },
 
@@ -802,14 +802,14 @@
       locationCn: "喀什噶爾",
       locationEn: "Kashgar · the Western Gate",
       title: "A Charm in the Bazaar",
-      subtitle: "A small test of greed.",
+      subtitle: "The road is nearly done. This is where it takes your last coin — or doesn't.",
       narration: [
         "In the Sunday bazaar of Kashgar, a Uyghur trader in a green turban offers you a small brass coin on a red cord. A charm, he says, for safe passage through the desert.",
         "It is very cheap. The trader smiles a very wide smile."
       ],
       choices: [
-        { label: "Buy the charm. A little luck is worth a little silver.", next: "khanbaliq" },
-        { label: "Decline, politely. Luck is a story we tell after the road.", next: "khanbaliq" }
+        { label: "Buy it. You've spent silver on worse prayers.", next: "khanbaliq" },
+        { label: "Walk on. You have carried yourself this far without help from a cord.", next: "khanbaliq" }
       ]
     },
 
@@ -818,7 +818,7 @@
       locationCn: "汗八里",
       locationEn: "Khanbaliq · the court of Kublai Khan",
       title: "The Court of the Great Khan",
-      subtitle: "Twenty-four years from Venice. You have arrived.",
+      subtitle: "You have crossed the world. Do not waste the last ten feet.",
       narration: [
         "The throne room of Kublai Khan is a sea of silk. The Great Khan is old, and his eyes are patient.",
         "An interpreter whispers: the Khan will receive your gifts in private, but only one Venetian knows the proper ceremony. You are that Venetian.",
@@ -826,8 +826,8 @@
         "The Khan's eyes rest on you. He says, in a voice like a slow river: <em>「不患無位，患所以立。」</em><span class=\"inline-pinyin\">bù huàn wú wèi, huàn suǒ yǐ lì</span> Do not worry about the rank; worry about whether you deserve it."
       ],
       choices: [
-        { label: "Present each gift with its story. A small ceremony is worth more than a great haste.", next: "ending" },
-        { label: "Lay them all out at once. The Khan has seen a thousand treasures — he is too old for ceremony.", next: "ending" }
+        { label: "One gift, one story, one bow. Make him wait for each. The Khan has time — you have earned the right to use it.", next: "ending" },
+        { label: "Set everything down at once and bow. Perhaps he sees through ceremony. Perhaps he never forgave you for skipping it.", next: "ending" }
       ]
     },
 
@@ -836,7 +836,7 @@
       locationCn: "歸途",
       locationEn: "The long way home",
       title: "The Return",
-      subtitle: "Twenty-four years later, you sail for Venice.",
+      subtitle: "The sea is the same. You are not.",
       ending: true,
       narration: [
         "You are forty-one years old. You carry, in a leather satchel that has been repaired in Samarqand, Kashgar, and Hangzhou, a small book — in a language you have taught yourself to write — that tells the story of every mile.",
