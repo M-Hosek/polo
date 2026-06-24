@@ -480,6 +480,64 @@
     margin-left: 8px;
   }
 
+  .chengyu-tip {
+    cursor: help;
+    text-decoration: underline dotted var(--seal);
+    text-underline-offset: 3px;
+  }
+
+  #chengyu-tooltip {
+    position: fixed;
+    z-index: 100;
+    pointer-events: none;
+    display: none;
+    max-width: 280px;
+    background: #1B1A17;
+    color: #F4ECD8;
+    border: 2px solid var(--seal);
+    padding: 12px 14px;
+    font-family: "Noto Serif", "Noto Serif SC", Georgia, serif;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.4);
+  }
+
+  #chengyu-tooltip table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  #chengyu-tooltip td {
+    padding: 2px 8px 2px 0;
+    border-bottom: 1px solid rgba(156, 42, 31, 0.2);
+    vertical-align: top;
+  }
+
+  #chengyu-tooltip td:first-child {
+    font-family: "Noto Serif SC", serif;
+    font-size: 1.1rem;
+    color: var(--seal);
+    white-space: nowrap;
+    padding-right: 10px;
+  }
+
+  #chengyu-tooltip td:nth-child(2) {
+    font-style: italic;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    padding-right: 10px;
+  }
+
+  #chengyu-tooltip .tip-translation {
+    color: var(--seal);
+    border-top: 1px solid rgba(156, 42, 31, 0.25);
+    padding-top: 6px;
+    margin-top: 2px;
+    font-style: italic;
+    font-size: 0.88rem;
+  }
+
   /* mobile */
   @media (max-width: 640px) {
     .scroll { padding: 36px 20px 64px 56px; }
@@ -601,6 +659,68 @@
       ]
     }
   };
+
+  /* ===================== tooltip ===================== */
+  const tooltip = document.getElementById("chengyu-tooltip");
+
+  function buildTooltipHtml(key) {
+    const c = CHENGYU[key];
+    if (!c || !c.chars_breakdown) return "";
+    const rows = c.chars_breakdown.map(b =>
+      `<tr><td>${b.char}</td><td>${b.pinyin}</td><td>${b.meaning}</td></tr>`
+    ).join("");
+    return `<table>${rows}</table><div class="tip-translation">${c.literal}</div>`;
+  }
+
+  function positionTooltip(x, y) {
+    const tw = tooltip.offsetWidth, th = tooltip.offsetHeight, GAP = 12;
+    let lx = x + GAP, ly = y + GAP;
+    if (lx + tw > window.innerWidth - 8)  lx = x - tw - GAP;
+    if (ly + th > window.innerHeight - 8) ly = y - th - GAP;
+    tooltip.style.left = lx + "px";
+    tooltip.style.top  = ly + "px";
+  }
+
+  document.addEventListener("mouseover", e => {
+    const tip = e.target.closest(".chengyu-tip");
+    if (!tip) return;
+    const html = buildTooltipHtml(tip.dataset.key);
+    if (!html) return;
+    tooltip.innerHTML = html;
+    tooltip.style.display = "block";
+    tooltip.removeAttribute("aria-hidden");
+    positionTooltip(e.clientX, e.clientY);
+  });
+
+  document.addEventListener("mousemove", e => {
+    if (tooltip.style.display === "block") positionTooltip(e.clientX, e.clientY);
+  });
+
+  document.addEventListener("mouseout", e => {
+    if (!e.target.closest(".chengyu-tip")) return;
+    if (e.relatedTarget && e.relatedTarget.closest(".chengyu-tip")) return;
+    tooltip.style.display = "none";
+    tooltip.setAttribute("aria-hidden", "true");
+  });
+
+  document.addEventListener("focusin", e => {
+    const tip = e.target.closest(".chengyu-tip");
+    if (!tip) return;
+    const html = buildTooltipHtml(tip.dataset.key);
+    if (!html) return;
+    tooltip.innerHTML = html;
+    const r = tip.getBoundingClientRect();
+    tooltip.style.left = r.left + "px";
+    tooltip.style.top  = (r.bottom + 8) + "px";
+    tooltip.style.display = "block";
+    tooltip.removeAttribute("aria-hidden");
+  });
+
+  document.addEventListener("focusout", e => {
+    if (!e.target.closest(".chengyu-tip")) return;
+    tooltip.style.display = "none";
+    tooltip.setAttribute("aria-hidden", "true");
+  });
 
   /* ===================== story scenes ===================== */
   /* each scene: { id, location (cn + en), title, subtitle, narration (array of <p>), choices: [{label, next, chengyu?}] } */
@@ -939,6 +1059,8 @@
   /* ===================== boot ===================== */
   goTo("start");
 </script>
+
+<div id="chengyu-tooltip" role="tooltip" aria-hidden="true"></div>
 
 </body>
 </html>
