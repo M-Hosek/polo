@@ -6,13 +6,13 @@
 <title>The Travels of Marco Polo — A Chengyu Scroll</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
 <style>
   :root {
     --bg:           #1a1a2e;
     --panel:        #16213e;
     --text:         #f0e6d3;
-    --text-muted:   #a09080;
+    --text-muted:   #c5b8a8;
     --accent:       #ffd700;
     --accent-2:     #ff6b35;
     --scene-bg:     #1a1a2e;
@@ -34,9 +34,9 @@
   /* ── per-scene palette overrides ── */
   main[data-scene="start"]     { --scene-bg: #0a3d62; --scene-accent: #00b4d8; --scene-border: #005f73; }
   main[data-scene="acre"]      { --scene-bg: #5c3d11; --scene-accent: #f4a261; --scene-border: #e76f51; }
-  main[data-scene="hormuz"]    { --scene-bg: #7b2d00; --scene-accent: #ff7c43; --scene-border: #c1440e; }
+  main[data-scene="hormuz"]    { --scene-bg: #7b2d00; --scene-accent: #ff9d6e; --scene-border: #c1440e; }
   main[data-scene="pamir"]     { --scene-bg: #0d1b2a; --scene-accent: #e0fbfc; --scene-border: #48cae4; }
-  main[data-scene="kashgar"]   { --scene-bg: #1b4332; --scene-accent: #52b788; --scene-border: #2d6a4f; }
+  main[data-scene="kashgar"]   { --scene-bg: #1b4332; --scene-accent: #58c08b; --scene-border: #2d6a4f; }
   main[data-scene="khanbaliq"] { --scene-bg: #3d0000; --scene-accent: #ffd700; --scene-border: #7b0000; }
   main[data-scene="ending"]    { --scene-bg: #1a1a2e; --scene-accent: #ffd700; --scene-border: #000; }
 
@@ -60,7 +60,7 @@
 
   header.title h1 {
     font-family: "Press Start 2P", monospace;
-    font-size: clamp(0.85rem, 2.8vw, 1.3rem);
+    font-size: clamp(1.0rem, 2.8vw, 1.4rem);
     line-height: 1.6;
     margin: 0 0 12px;
     color: var(--accent);
@@ -74,27 +74,6 @@
     color: var(--text-muted);
     margin: 0 0 18px;
     letter-spacing: 0.06em;
-  }
-
-  header.title .seal-strip {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 12px;
-    flex-wrap: wrap;
-  }
-
-  .seal-strip .stamp {
-    display: inline-block;
-    background: var(--accent);
-    color: #000;
-    font-family: "Noto Serif SC", serif;
-    font-weight: 600;
-    font-size: 0.82rem;
-    padding: 5px 8px;
-    border: 2px solid #000;
-    box-shadow: 3px 3px 0 #000;
-    letter-spacing: 0.05em;
   }
 
   /* ── pixel banner SVG ── */
@@ -126,7 +105,7 @@
   .world-label {
     display: inline-block;
     font-family: "Press Start 2P", monospace;
-    font-size: 0.55rem;
+    font-size: 0.6rem;
     color: var(--scene-accent);
     background: #000;
     padding: 3px 7px;
@@ -137,10 +116,10 @@
 
   /* ── location badge ── */
   .location {
-    font-family: "Press Start 2P", monospace;
-    font-size: 0.52rem;
+    font-family: "VT323", monospace;
+    font-size: 0.875rem;
     color: var(--scene-accent);
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     margin-bottom: 12px;
     text-transform: uppercase;
     display: block;
@@ -148,20 +127,12 @@
 
   /* ── scene title / subtitle ── */
   .scene-title {
-    font-family: "Press Start 2P", monospace;
-    font-size: clamp(0.75rem, 2.2vw, 1.05rem);
+    font-family: "VT323", monospace;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
     color: var(--scene-accent);
     margin: 0 0 8px;
     line-height: 1.5;
     text-shadow: 2px 2px 0 #000;
-  }
-
-  .scene-subtitle {
-    font-style: italic;
-    color: var(--text-muted);
-    font-size: 0.88rem;
-    margin: 0 0 22px;
-    letter-spacing: 0.03em;
   }
 
   /* ── narration ── */
@@ -198,9 +169,9 @@
     background: #000;
     border: 3px solid var(--scene-accent);
     color: var(--scene-accent);
-    font-family: "Press Start 2P", monospace;
-    font-size: 0.6rem;
-    line-height: 1.8;
+    font-family: "VT323", monospace;
+    font-size: 1.0rem;
+    line-height: 1.6;
     padding: 12px 16px;
     cursor: pointer;
     position: relative;
@@ -254,8 +225,8 @@
   }
 
   .chengyu-card .label {
-    font-family: "Press Start 2P", monospace;
-    font-size: 0.5rem;
+    font-family: "VT323", monospace;
+    font-size: 0.75rem;
     color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 0.14em;
@@ -313,8 +284,8 @@
     background: transparent;
     border: 0;
     color: var(--accent);
-    font-family: "Press Start 2P", monospace;
-    font-size: 0.6rem;
+    font-family: "VT323", monospace;
+    font-size: 0.875rem;
     letter-spacing: 0.06em;
     cursor: pointer;
     padding: 8px 4px;
@@ -333,8 +304,8 @@
   }
 
   .prologue-name label {
-    font-family: "Press Start 2P", monospace;
-    font-size: 0.55rem;
+    font-family: "VT323", monospace;
+    font-size: 0.75rem;
     color: var(--text-muted);
     line-height: 1.8;
   }
@@ -364,8 +335,8 @@
   }
 
   .ending-block .ending-title {
-    font-family: "Press Start 2P", monospace;
-    font-size: clamp(0.7rem, 2vw, 1.0rem);
+    font-family: "VT323", monospace;
+    font-size: clamp(1.0rem, 2.2vw, 1.3rem);
     color: var(--accent);
     margin: 0 0 8px;
     text-shadow: 2px 2px 0 #000;
@@ -395,8 +366,8 @@
   }
 
   .glossary h2 {
-    font-family: "Press Start 2P", monospace;
-    font-size: clamp(0.65rem, 2vw, 0.9rem);
+    font-family: "VT323", monospace;
+    font-size: clamp(1.0rem, 2.2vw, 1.25rem);
     color: var(--accent);
     margin: 0 0 6px;
     text-shadow: 2px 2px 0 #000;
@@ -444,35 +415,6 @@
     letter-spacing: 0.05em;
   }
 
-  /* ── footer seal ── */
-  footer.seal {
-    margin-top: 48px;
-    text-align: center;
-  }
-
-  footer.seal .square {
-    display: inline-block;
-    background: var(--accent);
-    color: #000;
-    font-family: "Noto Serif SC", serif;
-    font-weight: 600;
-    font-size: 0.82rem;
-    width: 64px;
-    height: 64px;
-    line-height: 64px;
-    text-align: center;
-    border: 3px solid #000;
-    box-shadow: 4px 4px 0 #000;
-  }
-
-  footer.seal .caption {
-    font-family: "Press Start 2P", monospace;
-    font-size: 0.5rem;
-    color: var(--text-muted);
-    margin-top: 12px;
-    letter-spacing: 0.12em;
-  }
-
   /* ── earned badge ── */
   .earned {
     display: inline-block;
@@ -500,9 +442,9 @@
     border: 3px solid var(--accent);
     box-shadow: 4px 4px 0 #000;
     padding: 12px 14px;
-    font-family: "Press Start 2P", monospace;
-    font-size: 0.5rem;
-    line-height: 1.8;
+    font-family: "VT323", monospace;
+    font-size: 0.875rem;
+    line-height: 1.6;
   }
 
   #chengyu-tooltip table {
@@ -538,16 +480,16 @@
     padding-top: 6px;
     margin-top: 2px;
     font-style: italic;
-    font-size: 0.52rem;
+    font-size: 0.8rem;
   }
 
   /* ── mobile ── */
   @media (max-width: 600px) {
     .scroll { padding: 20px; margin: 0; border-left: 0; border-right: 0; box-shadow: none; }
-    header.title h1 { font-size: 0.9rem; }
-    .scene-title { font-size: 0.75rem; }
-    .choice { font-size: 0.55rem; }
-    .glossary h2 { font-size: 0.65rem; }
+    header.title h1 { font-size: 1.0rem; }
+    .scene-title { font-size: 1.0rem; }
+    .choice { font-size: 0.875rem; }
+    .glossary h2 { font-size: 0.875rem; }
   }
 </style>
 </head>
@@ -568,20 +510,11 @@
       <rect x="0" y="74" width="640" height="6" fill="var(--scene-accent, #ffd700)" opacity="0.15"/>
     </svg>
 
-    <div class="seal-strip" aria-hidden="true">
-      <span class="stamp">事半功倍</span>
-      <span class="stamp">塞翁失馬</span>
-      <span class="stamp">厚積薄發</span>
-    </div>
   </header>
 
   <!-- the scene panel — JS swaps its contents -->
   <section class="scene-panel" id="panel" aria-live="polite"></section>
 
-  <footer class="seal" aria-hidden="true">
-    <div class="square">馬可<br>波羅</div>
-    <div class="caption">— fin. —</div>
-  </footer>
 
 </main>
 
@@ -594,7 +527,7 @@
       chars:    "事半功倍",
       pinyin:   "shì bàn gōng bèi",
       literal:  "Half the work, twice the result.",
-      meaning:  "A wise method accomplishes more with less effort. Work smarter, not harder.",
+      meaning:  "The smartest path is rarely the hardest one. Skill and method outrun brute effort every time.",
       origin:   "From 《孟子·盡心上》: 「故事半古之人，功必倍之。」— Those who use the methods of the ancients achieve double the result with half the effort.",
       chars_breakdown: [
         {char:"事", pinyin:"shì", meaning:"effort / task"},
@@ -607,7 +540,7 @@
       chars:    "塞翁失馬",
       pinyin:   "sài wēng shī mǎ",
       literal:  "The old man at the border loses his horse.",
-      meaning:  "A misfortune may turn out to be a blessing; fortune is uncertain and often reverses.",
+      meaning:  "You cannot know yet whether this is bad news. What looks like loss has a way of turning itself inside out.",
       origin:   "From 《淮南子·人間訓》: an old man's horse runs away; neighbors pity him. The horse returns with a herd of wild horses, and they congratulate him. When his son breaks his leg riding one, they pity him again — but the conscription comes, and the son is spared.",
       chars_breakdown: [
         {char:"塞", pinyin:"sài", meaning:"frontier fort"},
@@ -620,7 +553,7 @@
       chars:   "厚積薄發",
       pinyin:  "hòu jī bó fā",
       literal: "Accumulate deep; release sparingly.",
-      meaning: "Great preparation, quietly built, leads to great outcomes. True resources grow slowly and are spent wisely.",
+      meaning: "What looks thin on the surface is the product of a long, quiet preparation. The depth shows itself only when the moment demands it.",
       origin:  "From Su Shi's 《稼說》: 「博觀而約取，厚積而薄發。」— 'Read widely and take little; accumulate much and release sparingly.' HSK 6 confirmed; gaokao favorite.",
       chars_breakdown: [
         {char:"厚", pinyin:"hòu", meaning:"thick, deep, substantial"},
@@ -633,7 +566,7 @@
       chars: "急於求成",
       pinyin: "jí yú qiú chéng",
       literal: "Urgent to achieve success.",
-      meaning: "Hasty in seeking results; impatience that causes its own failure.",
+      meaning: "Impatience is its own worst enemy — the urgency to succeed is precisely what prevents it.",
       origin: "Common in classical Chinese writing; pairs with 欲速則不達.",
       chars_breakdown: [
         {char:"急", pinyin:"jí",   meaning:"urgent, anxious"},
@@ -646,7 +579,7 @@
       chars: "欲速則不達",
       pinyin: "yù sù zé bù dá",
       literal: "Desiring speed, one does not arrive.",
-      meaning: "He who desires speed does not arrive. Rushing guarantees failure.",
+      meaning: "Urgency is not speed. The harder you push to arrive, the further the destination moves — the road rewards the patient, not the runner.",
       origin: "From 《論語·子路》: Confucius — 無欲速，無見小利. 'Do not desire speed; do not attend to small gains.'",
       chars_breakdown: [
         {char:"欲", pinyin:"yù", meaning:"to desire"},
@@ -737,7 +670,7 @@
         "You are seventeen. The lagoon is grey this morning, and the salt wind off the Adriatic carries the smell of far places — cinnamon, frankincense, dust.",
         "Your father Niccolò and your uncle Maffeo are loading a small fortune in Venetian glass onto a galley bound for Acre. They mean to return to the court of Kublai Khan, and they mean to take you with them.",
         "The road ahead is long, and very few who set out ever come back.",
-        "A traveler gives you a small piece of advice before the oars splash: <em>「不積跬步，無以至千里。」</em><span class=\"inline-pinyin\">bù jī kuǐ bù, wú yǐ zhì qiān lǐ</span> A journey of ten thousand miles begins with a single step."
+        "Before the oars splash, an old harbor pilot who has watched a thousand departures rests his hand on the dock post and says nothing for a moment. Then: <em>「不積跬步，無以至千里。」</em><span class=\"inline-pinyin\">bù jī kuǐ bù, wú yǐ zhì qiān lǐ</span> Ten thousand miles is nothing more than the sum of its steps. You begin with this one."
       ],
       choices: [
         { label: "Step aboard. Leave Venice behind. It will not look the same when you return.", next: "acre" }
@@ -753,8 +686,8 @@
       subtitle: "One road home. Two ways to lose it.",
       narration: [
         "In the Acre marketplace you trade a Venetian mirror for passage onward. A Genoese captain offers you a berth on a Black Sea galleon that will reach Hormuz in eight weeks — half the time of the overland caravan.",
-        "Your uncle frowns at the galleon's barnacled hull. <span class=\"chengyu-tip\" data-key=\"jiyuqiucheng\" tabindex=\"0\"><em>「急於求成，反而多險。」</em><span class=\"inline-pinyin\">jí yú qiú chéng, fǎn ér duō xiǎn</span></span> Hurry invites trouble, he says. The caravan is slower, but the roads are well-worn and the watchtowers are manned by friends of the Khan.",
-        "The captain drums his fingers. <span class=\"chengyu-tip\" data-key=\"saiwengshima\" tabindex=\"0\"><em>「塞翁失馬，安知非福。」</em><span class=\"inline-pinyin\">sài wēng shī mǎ, ān zhī fēi fú</span></span> The old man at the border lost his horse, the proverb goes — and the loss turned into a herd."
+        "Your uncle Maffeo frowns at the galleon's barnacled hull. <span class=\"chengyu-tip\" data-key=\"jiyuqiucheng\" tabindex=\"0\"><em>「急於求成，反而多險。」</em><span class=\"inline-pinyin\">jí yú qiú chéng, fǎn ér duō xiǎn</span></span> The man who rushes, he says, builds his own obstacle. The caravan is slower, but the roads are well-worn and the watchtowers are manned by friends of the Khan.",
+        "The captain drums his fingers on the dock rail and smiles. <span class=\"chengyu-tip\" data-key=\"saiwengshima\" tabindex=\"0\"><em>「塞翁失馬，安知非福。」</em><span class=\"inline-pinyin\">sài wēng shī mǎ, ān zhī fēi fú</span></span> You cannot know yet whether this is a risk, he says. Fortune turns itself inside out when you stop watching it."
       ],
       choices: [
         { label: "Board the galleon. A gamble on speed — and on the sea not turning.", next: "hormuz" },
@@ -772,7 +705,7 @@
       narration: [
         "You stand at the edge of the Dasht-i Lut, the empty desert. Heat ripples the sand into the shape of a distant sea.",
         "A merchant in a stained cotton coat approaches your caravan. He has no water of his own, no camels, no guards. He offers, in exchange for passage to Bukhara, his company — and his memory of every well and safehouse for a thousand miles.",
-        "Your father's brother Maffeo looks him over. <span class=\"chengyu-tip\" data-key=\"houjibofa\" tabindex=\"0\"><em>「厚積薄發。」</em><span class=\"inline-pinyin\">hòu jī bó fā</span></span> Accumulate deep; release slowly — and a man who knows every well between here and Bukhara has been accumulating for a very long time."
+        "Your uncle Maffeo looks the merchant over for a long moment, then turns to your father. <span class=\"chengyu-tip\" data-key=\"houjibofa\" tabindex=\"0\"><em>「厚積薄發。」</em><span class=\"inline-pinyin\">hòu jī bó fā</span></span> What shows thin on the surface, he says quietly, is the product of a long preparation. A man who carries every well and safehouse in his memory has spent years accumulating what we cannot see."
       ],
       choices: [
         { label: "Turn him away. The desert chose him, not you.", next: "pamir" },
@@ -789,7 +722,7 @@
       subtitle: "The bandits move fast. The mountain does not care.",
       narration: [
         "The Pamir pass rises to fifteen thousand feet. The horses grow short of breath; the mules stop to rest every hundred paces. Bandits, you are told, have been seen on the southern trail — moving fast, eager to catch a laden caravan.",
-        "Maffeo looks at the animals, then at the sky. <span class=\"chengyu-tip\" data-key=\"yusuzebuda\" tabindex=\"0\"><em>「欲速則不達。」</em><span class=\"inline-pinyin\">yù sù zé bù dá</span></span> He who is in a hurry does not arrive — and adds, quietly, that a clever pace now means arriving in good order, and in good order means arriving first."
+        "Maffeo looks at the animals, then at the pass above, then says nothing for a while. <span class=\"chengyu-tip\" data-key=\"yusuzebuda\" tabindex=\"0\"><em>「欲速則不達。」</em><span class=\"inline-pinyin\">yù sù zé bù dá</span></span> Urgency is not speed, he finally says. The road does not reward the runner — and the bandits burning themselves out on the southern trail will find no one to catch if we simply refuse to race them."
       ],
       choices: [
         { label: "Drive the animals through the night. They may not survive it. Neither may you.", next: "kashgar" },
@@ -881,7 +814,6 @@
       ${scene.worldLabel ? `<span class="world-label">${scene.worldLabel}</span>` : ""}
       <div class="location">${scene.locationCn} · ${scene.locationEn}</div>
       <h2 class="scene-title">${scene.title}</h2>
-      <p class="scene-subtitle">${scene.subtitle}</p>
       <div class="prologue-name">
         <label for="nameInput">Your name, traveler:</label>
         <input id="nameInput" type="text" value="Marco" maxlength="24" autocomplete="off" />
@@ -920,7 +852,6 @@
       ${scene.worldLabel ? `<span class="world-label">${scene.worldLabel}</span>` : ""}
       <div class="location">${scene.locationCn} · ${scene.locationEn}</div>
       <h2 class="scene-title">${scene.title}</h2>
-      <p class="scene-subtitle">${scene.subtitle}</p>
       <div class="narration">
         ${scene.narration.map(p => `<p>${p}</p>`).join("")}
       </div>
@@ -1005,7 +936,6 @@
       ${SCENES.ending.worldLabel ? `<span class="world-label">${SCENES.ending.worldLabel}</span>` : ""}
       <div class="location">${SCENES.ending.locationCn} · ${SCENES.ending.locationEn}</div>
       <h2 class="scene-title">${SCENES.ending.title}</h2>
-      <p class="scene-subtitle">${SCENES.ending.subtitle}</p>
       <div class="narration">
         ${SCENES.ending.narration.map(p => `<p>${p}</p>`).join("")}
       </div>
