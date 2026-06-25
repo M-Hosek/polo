@@ -601,6 +601,19 @@
         {char:"不", pinyin:"bù", meaning:"not"},
         {char:"達", pinyin:"dá", meaning:"to arrive"}
       ]
+    },
+    sengduozhoushao: {
+      chars:    "僧多粥少",
+      pinyin:   "sēng duō zhōu shǎo",
+      literal:  "Many monks, little porridge.",
+      meaning:  "More demand than supply — when too many people compete for too few resources, the price of everything rises. Recognizing the situation before you enter the room is the whole advantage.",
+      origin:   "Common in classical and vernacular Chinese; describes any situation where need outstrips supply. Paired here with the Kashgar camel market, 1273.",
+      chars_breakdown: [
+        {char:"僧", pinyin:"sēng", meaning:"monk"},
+        {char:"多", pinyin:"duō",  meaning:"many"},
+        {char:"粥", pinyin:"zhōu", meaning:"porridge, congee"},
+        {char:"少", pinyin:"shǎo", meaning:"few, little"}
+      ]
     }
   };
 
@@ -753,12 +766,15 @@
       title: "A Charm in the Bazaar",
       subtitle: "The road is nearly done. This is where it takes your last coin — or doesn't.",
       narration: [
-        "In the Sunday bazaar of Kashgar, a Uyghur trader in a green turban offers you a small brass coin on a red cord. A charm, he says, for safe passage through the desert.",
-        "It is very cheap. The trader smiles a very wide smile."
+        "The camel market of Kashgar runs at dawn on Sundays, and by the time you arrive — two hours after dawn, having slept poorly — the good animals are already spoken for. You need four more camels for the Taklamakan crossing. So does every other caravan in the city, because the last crossing was bad and half the animals on this road did not come back.",
+        "The yard is full of men from Venice and Genoa and Cairo and Samarkand, all of them crowded around the same eight animals, all of them calling prices that the seller receives with the expression of a man who has died and gone to heaven. Niccolò watches from the gate. He does not enter. He looks at the crowd, then at the prices chalked on the board, and says — not loudly, more to himself than to anyone — <span class=\"chengyu-tip\" data-key=\"sengduozhoushao\" tabindex=\"0\"><em>「僧多粥少。」</em><span class=\"inline-pinyin\">sēng duō zhōu shǎo</span></span> More demand than supply. Not enough to go around. He says it the way a man names a disease he has seen before and does not like.",
+        "Maffeo does the arithmetic aloud. Your animals are strong enough for the road you have come — three months of mountain and plateau — but the Taklamakan is a different country, and the animals know it already. You can pay the market price for four fresh camels, which is twice what camels cost in any reasonable year. Or you can push the animals you have, conserve the silver, and trust that they hold.",
+        "Niccolò, still at the gate, turns and looks at you once. He says nothing. He trusts you to know that the court of the Khan receives embassies on a schedule, and the schedule does not accommodate a caravan that loses an animal on a salt flat three weeks from Khanbaliq.",
+        "You look at your own animals. They have carried you from Venice and they are not done. The question is whether you ask them to be more than that."
       ],
       choices: [
-        { label: "Buy it. You've spent silver on worse prayers.", setback: ["[KASHGAR SETBACK PLACEHOLDER — replaced in Phase 2]"] },
-        { label: "Walk on. You have carried yourself this far without help from a cord.", next: "khanbaliq", chengyu: "jiyuqiucheng" }
+        { label: "Buy it. You've spent silver on worse prayers.", setback: ["One of the camels goes lame on the fifth day into the Taklamakan, on a salt flat where there is no shade and the horizon is the same in every direction. You lose a day redistributing the load. You lose another day nursing the animal to a point where it can walk. By the time you reach the first waystation, you are ten days behind the schedule Niccolò had kept since Venice. You go back to Kashgar, buy the camels at the price Maffeo named, and start the crossing again."] },
+        { label: "Walk on. You have carried yourself this far without help from a cord.", next: "khanbaliq", chengyu: "sengduozhoushao" }
       ]
     },
 
@@ -918,7 +934,7 @@
 
   function renderEnding() {
     // glossary — all six idioms, in journey order (every finisher earns all of them)
-    const allKeys = ["bujikuibu", "yusuzebuda", "shibangongbei", "saiwengshima", "jiyuqiucheng", "houjibofa"];
+    const allKeys = ["bujikuibu", "yusuzebuda", "shibangongbei", "saiwengshima", "sengduozhoushao", "houjibofa"];
     const glossaryHtml = allKeys.map(k => {
       const c = CHENGYU[k];
       const earned = state.earnedChengyu.has(k);
