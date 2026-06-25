@@ -840,7 +840,7 @@
     `;
   }
 
-  function renderScene(scene) {
+  function renderScene(scene, sceneId) {
     if (scene.prologue) {
       panel.innerHTML = renderPrologue(scene);
       document.getElementById("nameInput").addEventListener("input", (e) => {
@@ -856,9 +856,6 @@
       return;
     }
 
-    let pendingChengyuHtml = "";
-    let pendingChengyuKey = null;
-
     const choicesHtml = scene.choices.map((c, i) => {
       return `<li><button class="choice" data-num="${["i", "ii", "iii"][i]}" data-next="${c.next}" data-chengyu="${c.chengyu || ""}">${c.label}</button></li>`;
     }).join("");
@@ -873,19 +870,15 @@
       <ul class="choices">${choicesHtml}</ul>
     `;
 
-    panel.querySelectorAll(".choice").forEach(btn => {
+    panel.querySelectorAll(".choice").forEach((btn, i) => {
       btn.addEventListener("click", () => {
-        const next = btn.dataset.next;
-        const ckey = btn.dataset.chengyu;
-        // record score
-        if (ckey) state.score += 1;     // wise choice
-        else state.score -= 1;          // not the lesson-triggering choice
-        if (ckey) {
-          // show chengyu card inline, then advance
-          pendingChengyuKey = ckey;
-          showChengyuThenAdvance(ckey, next);
-        } else {
-          goTo(next);
+        const choice = scene.choices[i];
+        if (choice.chengyu) {
+          showChengyuThenAdvance(choice.chengyu, choice.next);
+        } else if (choice.setback) {
+          showSetbackThenRetry(choice.setback, sceneId);
+        } else if (choice.next) {
+          goTo(choice.next);
         }
       });
     });
@@ -903,6 +896,20 @@
     // scroll card into view
     cont.scrollIntoView({ behavior: "smooth", block: "center" });
     document.getElementById("afterChengyu").addEventListener("click", () => goTo(next));
+  }
+
+  function showSetbackThenRetry(paras, sceneId) {
+    const block = document.createElement("div");
+    block.className = "setback";
+    block.innerHTML =
+      `<p class="setback-label">— a wrong turning —</p>` +
+      paras.map(p => `<p>${p}</p>`).join("") +
+      `<button class="continue-btn" id="afterSetback">Try again</button>`;
+    panel.appendChild(block);
+    const choicesEl = panel.querySelector(".choices");
+    if (choicesEl) choicesEl.style.display = "none";
+    block.scrollIntoView({ behavior: "smooth", block: "center" });
+    document.getElementById("afterSetback").addEventListener("click", () => goTo(sceneId));
   }
 
   function renderEnding() {
@@ -975,7 +982,7 @@
     const scene = SCENES[id];
     if (!scene) return;
     document.getElementById("scroll").dataset.scene = id;
-    renderScene(scene);
+    renderScene(scene, id);
     // scroll the panel to the top of the visible area
     panel.scrollIntoView({ behavior: "smooth", block: "start" });
   }
