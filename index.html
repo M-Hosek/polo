@@ -677,7 +677,7 @@
       ]
     },
 
-    /* ---------- scene 2: Acre — saiwengshima lesson ---------- */
+    /* ---------- scene 2: Acre — yusuzebuda lesson ---------- */
     acre: {
       locationCn: "阿克里",
       locationEn: "Acre · the Levant",
@@ -686,16 +686,16 @@
       subtitle: "One road home. Two ways to lose it.",
       narration: [
         "In the Acre marketplace you trade a Venetian mirror for passage onward. A Genoese captain offers you a berth on a Black Sea galleon that will reach Hormuz in eight weeks — half the time of the overland caravan.",
-        "Your uncle Maffeo frowns at the galleon's barnacled hull. <span class=\"chengyu-tip\" data-key=\"jiyuqiucheng\" tabindex=\"0\"><em>「急於求成，反而多險。」</em><span class=\"inline-pinyin\">jí yú qiú chéng, fǎn ér duō xiǎn</span></span> The man who rushes, he says, builds his own obstacle. The caravan is slower, but the roads are well-worn and the watchtowers are manned by friends of the Khan.",
-        "The captain drums his fingers on the dock rail and smiles. <span class=\"chengyu-tip\" data-key=\"saiwengshima\" tabindex=\"0\"><em>「塞翁失馬，安知非福。」</em><span class=\"inline-pinyin\">sài wēng shī mǎ, ān zhī fēi fú</span></span> You cannot know yet whether this is a risk, he says. Fortune turns itself inside out when you stop watching it."
+        "Your uncle Maffeo frowns at the galleon's barnacled hull. <span class="chengyu-tip" data-key="yusuzebuda" tabindex="0"><em>「欲速則不達。」</em><span class="inline-pinyin">yù sù zé bù dá</span></span> The man who runs faster than the road, he says, arrives last. The caravan is slower, but the roads are well-worn and the watchtowers are manned by friends of the Khan.",
+        "The captain drums his fingers on the dock rail and smiles. Eight weeks, he repeats. Half the time. He has said this to every merchant on this dock for a season, and every merchant has decided for himself."
       ],
       choices: [
         { label: "Board the galleon. A gamble on speed — and on the sea not turning.", next: "hormuz" },
-        { label: "Walk with your uncle into the dust. Sixteen weeks of road, no shortcuts, no rescue.", next: "hormuz", chengyu: "saiwengshima" }
+        { label: "Walk with your uncle into the dust. Sixteen weeks of road, no shortcuts, no rescue.", next: "hormuz", chengyu: "yusuzebuda" }
       ]
     },
 
-    /* ---------- scene 3: Hormuz / desert — luyaozhimali lesson ---------- */
+    /* ---------- scene 3: Hormuz / desert — shibangongbei lesson ---------- */
     hormuz: {
       locationCn: "霍爾木茲",
       locationEn: "Hormuz · the Persian Gulf",
@@ -705,11 +705,11 @@
       narration: [
         "You stand at the edge of the Dasht-i Lut, the empty desert. Heat ripples the sand into the shape of a distant sea.",
         "A merchant in a stained cotton coat approaches your caravan. He has no water of his own, no camels, no guards. He offers, in exchange for passage to Bukhara, his company — and his memory of every well and safehouse for a thousand miles.",
-        "Your uncle Maffeo looks the merchant over for a long moment, then turns to your father. <span class=\"chengyu-tip\" data-key=\"houjibofa\" tabindex=\"0\"><em>「厚積薄發。」</em><span class=\"inline-pinyin\">hòu jī bó fā</span></span> What shows thin on the surface, he says quietly, is the product of a long preparation. A man who carries every well and safehouse in his memory has spent years accumulating what we cannot see."
+        "Your uncle Maffeo looks the merchant over for a long moment, then turns to your father. <span class="chengyu-tip" data-key="shibangongbei" tabindex="0"><em>「事半功倍。」</em><span class="inline-pinyin">shì bàn gōng bèi</span></span> The merchant's worth is not what he carries, Maffeo says quietly, but what he knows — and a guide who knows the wells between here and Bukhara will save us a week of digging at every dry streambed."
       ],
       choices: [
         { label: "Turn him away. The desert chose him, not you.", next: "pamir" },
-        { label: "Take him in. Water spent now, knowledge kept forever — if he's telling the truth.", next: "pamir", chengyu: "houjibofa" }
+        { label: "Take him in. Water spent now, knowledge kept forever — if he's telling the truth.", next: "pamir", chengyu: "shibangongbei" }
       ]
     },
 
@@ -918,8 +918,8 @@
     };
     const v = variants[variant];
 
-    // glossary — show ALL 3 chengyu, mark which were earned in this playthrough
-    const allKeys = ["saiwengshima", "houjibofa", "shibangongbei"];
+    // glossary — show ALL 4 chengyu the player can earn, mark which were earned in this playthrough
+    const allKeys = ["yusuzebuda", "shibangongbei", "saiwengshima", "houjibofa"];
     const glossaryHtml = allKeys.map(k => {
       const c = CHENGYU[k];
       const earned = state.earnedChengyu.has(k);
