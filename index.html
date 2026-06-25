@@ -846,7 +846,12 @@
         const v = e.target.value.trim();
         state.name = v || "Marco";
       });
-      document.getElementById("goAcre").addEventListener("click", () => goTo(scene.choices[0].next));
+      document.getElementById("goAcre").addEventListener("click", () => {
+        document.getElementById("goAcre").style.display = "none";
+        const np = panel.querySelector(".prologue-name");
+        if (np) np.style.display = "none";
+        showChengyuThenAdvance("bujikuibu", scene.choices[0].next);
+      });
       return;
     }
 
