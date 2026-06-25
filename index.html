@@ -800,7 +800,6 @@
   /* ===================== state ===================== */
   const state = {
     name: "Marco",
-    score: 0,                  // wise = +1, unwise = -1 (used for ending variant)
     earnedChengyu: new Set(),  // keys from CHENGYU
     history: []                // scene ids visited
   };
@@ -913,33 +912,8 @@
   }
 
   function renderEnding() {
-    // pick ending variant by score
-    let variant;
-    if (state.score >= 2)      variant = "humble";       // made wise choices
-    else if (state.score >= 0) variant = "trusted";
-    else                       variant = "wealthy";
-
-    const variants = {
-      humble: {
-        title: "Humble Return",
-        sub:   "the wisdom of small steps",
-        blurb: "You arrive in Venice with very little gold, and a great deal of patience. You are not the loudest man in the tavern, but the merchants seek you out, because the routes you know are the routes that do not lose caravans."
-      },
-      trusted: {
-        title: "Trusted Advisor",
-        sub:   "the long acquaintance",
-        blurb: "You return with the friendship of the merchant you took into your caravan, and a memory for faces that opens doors from Genoa to Cathay. You are the man a captain wants at his side when the road grows strange."
-      },
-      wealthy: {
-        title: "Wealthy Merchant",
-        sub:   "the glittering galleon",
-        blurb: "You arrive in Venice with a galleon-full of silk and a story about a shortcut. You live well, and you are never quite sure the shortcut was the right one."
-      }
-    };
-    const v = variants[variant];
-
-    // glossary — show ALL 4 chengyu the player can earn, mark which were earned in this playthrough
-    const allKeys = ["yusuzebuda", "shibangongbei", "saiwengshima", "houjibofa"];
+    // glossary — all six idioms, in journey order (every finisher earns all of them)
+    const allKeys = ["bujikuibu", "yusuzebuda", "shibangongbei", "saiwengshima", "jiyuqiucheng", "houjibofa"];
     const glossaryHtml = allKeys.map(k => {
       const c = CHENGYU[k];
       const earned = state.earnedChengyu.has(k);
@@ -963,15 +937,12 @@
       </div>
 
       <div class="ending-block">
-        <h3 class="ending-title">${v.title}</h3>
-        <p class="ending-sub">${v.sub}</p>
-        <p class="ending-blurb">${v.blurb}</p>
         <button class="continue-btn" id="restart">Begin the journey again</button>
       </div>
 
       <section class="glossary" aria-label="Chengyu glossary">
         <h2>成語 · Chengyu Glossary</h2>
-        <p class="sub">Three proverbs from the road, and the small stories behind them.</p>
+        <p class="sub">Six proverbs from the road, and the small stories behind them.</p>
         ${glossaryHtml}
       </section>
     `;
@@ -991,7 +962,6 @@
   panel.addEventListener("click", (e) => {
     if (e.target && e.target.id === "restart") {
       state.name = "Marco";
-      state.score = 0;
       state.earnedChengyu = new Set();
       state.history = [];
       panel.innerHTML = "";
