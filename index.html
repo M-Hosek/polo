@@ -903,8 +903,7 @@
 
   function renderPrologue(scene) {
     return `
-      ${scene.worldLabel ? `<span class="world-label">${scene.worldLabel}</span>` : ""}
-      <div class="location">${scene.locationCn} · ${scene.locationEn}</div>
+      $<div class="location">${scene.locationCn} · ${scene.locationEn}</div>
       <h2 class="scene-title">${scene.title}</h2>
       <div class="prologue-name">
         <label for="nameInput">Your name, traveler:</label>
