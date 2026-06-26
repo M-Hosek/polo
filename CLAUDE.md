@@ -14,9 +14,10 @@ Tracked files: `index.html` (the game), `README.md`, `pamir-draft-v5.txt`
 
 ## Code structure (all inside the one `<script>` in `index.html`)
 
-- `CHENGYU` — object keyed by pinyin slug (`shibangongbei`, `saiwengshima`,
-  `houjibofa`, `jiyuqiucheng`, `yusuzebuda`). Each holds the characters,
-  pinyin, gloss, and origin shown on the idiom card and in the glossary.
+- `CHENGYU` — object keyed by pinyin slug (`bujikuibu`, `shibangongbei`,
+  `saiwengshima`, `houjibofa`, `yusuzebuda`, `sengduozhoushao`). Each holds the
+  characters, pinyin, gloss, `chars_breakdown`, and origin shown on the idiom
+  card, the hover tooltip, and the glossary.
 - `SCENES` — object keyed by scene id: `start`, `acre`, `hormuz`, `pamir`,
   `kashgar`, `khanbaliq`, `ending`. Each scene has `narration` (array of
   strings), `choices` (each with a `next` scene and optionally a `chengyu`
@@ -27,15 +28,20 @@ Tracked files: `index.html` (the game), `README.md`, `pamir-draft-v5.txt`
 
 ### Current chengyu mapping (the CODE is authoritative)
 
-| Scene  | Awards slug      | Characters   |
-|--------|------------------|--------------|
-| acre   | `yusuzebuda`     | 欲速則不達   |
-| hormuz | `shibangongbei`  | 事半功倍     |
-| pamir  | `saiwengshima`   | 塞翁失馬     |
-| kashgar| — (flavor only)  | —            |
+| Scene     | Awards slug        | Characters   |
+|-----------|--------------------|--------------|
+| start     | `bujikuibu`        | 不積跬步     |
+| acre      | `yusuzebuda`       | 欲速則不達   |
+| hormuz    | `shibangongbei`    | 事半功倍     |
+| pamir     | `saiwengshima`     | 塞翁失馬     |
+| kashgar   | `sengduozhoushao`  | 僧多粥少     |
+| khanbaliq | `houjibofa`        | 厚積薄發     |
+| ending    | — (no chengyu)     | —            |
 
-`houjibofa` and `jiyuqiucheng` are defined in `CHENGYU` but not currently
-awarded by any scene.
+All six idioms are awarded along the single main path, so `renderEnding`'s
+`allKeys` lists all six. `start` awards `bujikuibu` via the prologue flow
+(`showChengyuThenAdvance`), not a `choices[].chengyu`. `jiyuqiucheng` has been
+removed from `CHENGYU` entirely.
 
 > Note: `README.md`'s location/chengyu table is **stale** relative to this
 > mapping (it predates the Acre/Hormuz re-key). Trust the code, not the README,
