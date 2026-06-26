@@ -742,7 +742,7 @@
   });
 
   /* ===================== story scenes ===================== */
-  /* each scene: { id, location (cn + en), title, subtitle, narration (array of <p>), choices: [{label, next, chengyu?}] } */
+  /* each scene: {location (cn + en), title, subtitle, narration (array of <p>), choices: [{label, next, chengyu?}] } */
 
   const SCENES = {
 
@@ -750,7 +750,6 @@
     start: {
       locationCn: "威尼斯",
       locationEn: "Venice · 1271",
-      worldLabel: "WORLD 3-1",
       title: "The Departure",
       subtitle: "The oars are in the water. There is no gate to come back through.",
       prologue: true,
@@ -769,7 +768,6 @@
     acre: {
       locationCn: "阿克里",
       locationEn: "Acre · the Levant",
-      worldLabel: "WORLD 1-2",
       title: "The Crossroads",
       subtitle: "One road home. Two ways to lose it.",
       narration: [
@@ -787,7 +785,6 @@
     hormuz: {
       locationCn: "霍爾木茲",
       locationEn: "Hormuz · the Persian Gulf",
-      worldLabel: "WORLD 2-1",
       title: "A Stranger's Offer",
       subtitle: "He has nothing. He knows everything. You have to choose which matters.",
       narration: [
@@ -805,7 +802,6 @@
     pamir: {
       locationCn: "蔥嶺",
       locationEn: "The Pamir Mountains",
-      worldLabel: "WORLD 5-1",
       title: "The Toll of the Plateau",
       subtitle: "There is nothing to decide. There is only what you carry forward.",
       narration: [
@@ -824,7 +820,6 @@
     kashgar: {
       locationCn: "喀什噶爾",
       locationEn: "Kashgar · the Western Gate",
-      worldLabel: "WORLD 4-2",
       title: "The Camel Market",
       subtitle: "The road is nearly done. This is where it takes your last coin — or doesn't.",
       narration: [
@@ -844,7 +839,6 @@
     khanbaliq: {
       locationCn: "汗八里",
       locationEn: "Khanbaliq · the court of Kublai Khan",
-      worldLabel: "WORLD 7-1",
       title: "The Court of the Great Khan",
       subtitle: "You have crossed the world to be here.",
       narration: [
@@ -862,7 +856,6 @@
     ending: {
       locationCn: "歸途",
       locationEn: "The long way home",
-      worldLabel: "WORLD 8-1",
       title: "The Return",
       subtitle: "The sea is the same. You are not.",
       ending: true,
