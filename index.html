@@ -6,18 +6,23 @@
 <title>The Travels of Marco Polo — A Chengyu Scroll</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --bg:           #1a1a2e;
-    --panel:        #16213e;
-    --text:         #f0e6d3;
-    --text-muted:   #c5b8a8;
-    --accent:       #ffd700;
-    --accent-2:     #ff6b35;
-    --scene-bg:     #1a1a2e;
-    --scene-accent: #ffd700;
-    --scene-border: #000;
+    --bg:           #ece3d0;
+    --panel:        #faf5ea;
+    --ink:          #33291d;
+    --text:         #33291d;
+    --text-muted:   #5c4f3d;
+    --accent:       #8a6516;
+    --accent-2:     #c2502a;
+    --scene-bg:     #faf5ea;
+    --scene-accent: #8a6516;
+    --scene-border: #cdb487;
+
+    --font-body:    "Noto Serif SC", "Noto Serif", Georgia, "Times New Roman", serif;
+    --font-ui:      ui-sans-serif, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-display: "Press Start 2P", "Noto Serif SC", monospace;
   }
 
   * { box-sizing: border-box; }
@@ -27,26 +32,28 @@
     padding: 0;
     background: var(--bg);
     color: var(--text);
-    font-family: "Noto Serif SC", "Noto Serif", Georgia, serif;
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
     line-height: 1.85;
   }
 
   /* ── per-scene palette overrides ── */
-  main[data-scene="start"]     { --scene-bg: #0a3d62; --scene-accent: #00b4d8; --scene-border: #005f73; }
-  main[data-scene="acre"]      { --scene-bg: #5c3d11; --scene-accent: #f4a261; --scene-border: #e76f51; }
-  main[data-scene="hormuz"]    { --scene-bg: #7b2d00; --scene-accent: #ff9d6e; --scene-border: #c1440e; }
-  main[data-scene="pamir"]     { --scene-bg: #0d1b2a; --scene-accent: #e0fbfc; --scene-border: #48cae4; }
-  main[data-scene="kashgar"]   { --scene-bg: #1b4332; --scene-accent: #58c08b; --scene-border: #2d6a4f; }
-  main[data-scene="khanbaliq"] { --scene-bg: #3d0000; --scene-accent: #ffd700; --scene-border: #7b0000; }
-  main[data-scene="ending"]    { --scene-bg: #1a1a2e; --scene-accent: #ffd700; --scene-border: #000; }
+  main[data-scene="start"]     { --scene-bg: #dde8f1; --scene-accent: #1f5d72; --scene-border: #9cc1d4; }
+  main[data-scene="acre"]      { --scene-bg: #f3e6cd; --scene-accent: #9c5a22; --scene-border: #d9b483; }
+  main[data-scene="hormuz"]    { --scene-bg: #f7e3d0; --scene-accent: #a85327; --scene-border: #e0b48f; }
+  main[data-scene="pamir"]     { --scene-bg: #e2ebf0; --scene-accent: #3f5a73; --scene-border: #aac1d2; }
+  main[data-scene="kashgar"]   { --scene-bg: #e3eedd; --scene-accent: #3f6b43; --scene-border: #abc9a6; }
+  main[data-scene="khanbaliq"] { --scene-bg: #f4e3e1; --scene-accent: #9c3030; --scene-border: #d9aaa6; }
+  main[data-scene="ending"]    { --scene-bg: #f1e7d2; --scene-accent: #8a6516; --scene-border: #cdb487; }
 
   .scroll {
     max-width: 680px;
     margin: 24px auto;
     padding: 32px;
     background: var(--panel);
-    border: 4px solid #000;
-    box-shadow: 8px 8px 0 #000;
+    border: 1px solid #d8c9a8;
+    border-radius: 6px;
+    box-shadow: 0 10px 30px rgba(51, 41, 29, 0.18);
     transition: background 400ms ease;
   }
 
@@ -59,12 +66,11 @@
   }
 
   header.title h1 {
-    font-family: "Press Start 2P", monospace;
+    font-family: var(--font-display);
     font-size: clamp(1.0rem, 2.8vw, 1.4rem);
     line-height: 1.6;
     margin: 0 0 12px;
     color: var(--accent);
-    text-shadow: 3px 3px 0 #000;
     letter-spacing: 0.04em;
   }
 
@@ -89,8 +95,9 @@
     position: relative;
     background: var(--scene-bg);
     padding: 28px 24px 24px;
-    border: 3px solid var(--scene-border);
-    box-shadow: 5px 5px 0 #000;
+    border: 1px solid var(--scene-border);
+    border-radius: 6px;
+    box-shadow: 0 4px 14px rgba(51, 41, 29, 0.12);
     min-height: 320px;
     animation: unfurl 400ms ease both;
     transition: background 400ms ease, border-color 400ms ease;
@@ -104,22 +111,25 @@
   /* ── world label ── */
   .world-label {
     display: inline-block;
-    font-family: "Press Start 2P", monospace;
-    font-size: 0.6rem;
-    color: var(--scene-accent);
-    background: #000;
-    padding: 3px 7px;
-    margin-bottom: 10px;
-    border: 1px solid var(--scene-accent);
-    letter-spacing: 0.08em;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 0.7rem;
+    color: #fff;
+    background: var(--scene-accent);
+    padding: 4px 9px;
+    margin-bottom: 12px;
+    border-radius: 3px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
 
   /* ── location badge ── */
   .location {
-    font-family: "VT323", monospace;
-    font-size: 0.875rem;
+    font-family: var(--font-ui);
+    font-weight: 600;
+    font-size: 0.8rem;
     color: var(--scene-accent);
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     margin-bottom: 12px;
     text-transform: uppercase;
     display: block;
@@ -127,20 +137,20 @@
 
   /* ── scene title / subtitle ── */
   .scene-title {
-    font-family: "VT323", monospace;
-    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: clamp(1.35rem, 3vw, 1.7rem);
     color: var(--scene-accent);
     margin: 0 0 8px;
-    line-height: 1.5;
-    text-shadow: 2px 2px 0 #000;
+    line-height: 1.4;
   }
 
   /* ── narration ── */
   .narration {
-    font-size: 1.0rem;
+    font-size: 1.0625rem;
     color: var(--text);
     margin: 0 0 24px;
-    line-height: 1.9;
+    line-height: 1.85;
   }
 
   .narration p { margin: 0 0 1.1em; }
@@ -166,40 +176,47 @@
   .choice {
     width: 100%;
     text-align: left;
-    background: #000;
-    border: 3px solid var(--scene-accent);
-    color: var(--scene-accent);
-    font-family: "VT323", monospace;
-    font-size: 1.0rem;
-    line-height: 1.6;
-    padding: 12px 16px;
+    background: #fffdf8;
+    border: 2px solid var(--scene-accent);
+    border-radius: 5px;
+    color: var(--ink);
+    font-family: var(--font-ui);
+    font-size: 1.0625rem;
+    line-height: 1.5;
+    padding: 14px 16px;
     cursor: pointer;
     position: relative;
-    box-shadow: 4px 4px 0 #000;
-    transition: transform 80ms ease, box-shadow 80ms ease;
+    box-shadow: 0 2px 6px rgba(51, 41, 29, 0.12);
+    transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
   }
 
   .choice::before {
     content: attr(data-num) ". ";
-    color: var(--accent);
+    color: var(--scene-accent);
+    font-weight: 700;
     margin-right: 6px;
   }
 
-  .choice:hover,
+  .choice:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(51, 41, 29, 0.18);
+    background: #fff;
+  }
+
   .choice:focus-visible {
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 #000;
-    outline: none;
+    outline: 3px solid var(--scene-accent);
+    outline-offset: 2px;
   }
 
   /* ── chengyu card ── */
   .chengyu-card {
     margin: 24px 0;
-    border: 4px solid var(--accent);
+    border: 2px solid var(--accent);
+    border-radius: 6px;
     padding: 20px 22px 18px;
-    background: #000;
+    background: #fdf6e3;
     position: relative;
-    box-shadow: 6px 6px 0 rgba(255, 215, 0, 0.25);
+    box-shadow: 0 6px 16px rgba(138, 101, 22, 0.18);
     animation: stamp 500ms cubic-bezier(.2,.7,.2,1) both;
   }
 
@@ -216,16 +233,18 @@
     width: 36px;
     height: 36px;
     background: var(--accent);
-    color: #000;
+    color: #fff;
     font-size: 1.1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #000;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(138, 101, 22, 0.3);
   }
 
   .chengyu-card .label {
-    font-family: "VT323", monospace;
+    font-family: var(--font-ui);
+    font-weight: 700;
     font-size: 0.75rem;
     color: var(--accent);
     text-transform: uppercase;
@@ -235,11 +254,11 @@
 
   .chengyu-card .chars {
     font-family: "Noto Serif SC", serif;
+    font-weight: 600;
     font-size: 2.2rem;
-    color: var(--accent);
+    color: #6f4e12;
     margin: 0 0 4px;
     letter-spacing: 0.08em;
-    text-shadow: 2px 2px 0 rgba(255,215,0,0.2);
   }
 
   .chengyu-card .pinyin {
@@ -250,22 +269,22 @@
   }
 
   .chengyu-card .literal {
-    font-size: 0.88rem;
+    font-size: 0.95rem;
     color: var(--text-muted);
     margin: 0 0 10px;
   }
 
   .chengyu-card .meaning {
-    font-size: 0.98rem;
+    font-size: 1rem;
     color: var(--text);
     margin: 0 0 12px;
     line-height: 1.7;
   }
 
   .chengyu-card .origin {
-    font-size: 0.84rem;
+    font-size: 0.9rem;
     color: var(--text-muted);
-    border-top: 1px solid rgba(255, 215, 0, 0.2);
+    border-top: 1px solid rgba(138, 101, 22, 0.25);
     padding-top: 10px;
     margin: 0;
     line-height: 1.65;
@@ -281,18 +300,22 @@
   /* ── continue button ── */
   .continue-btn {
     margin-top: 20px;
-    background: transparent;
+    background: var(--scene-accent);
     border: 0;
-    color: var(--accent);
-    font-family: "VT323", monospace;
-    font-size: 0.875rem;
-    letter-spacing: 0.06em;
+    border-radius: 5px;
+    color: #fff;
+    font-family: var(--font-ui);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
     cursor: pointer;
-    padding: 8px 4px;
+    padding: 11px 18px;
+    transition: filter 120ms ease, transform 120ms ease;
   }
 
   .continue-btn::after { content: " ▶"; }
-  .continue-btn:hover { color: var(--accent-2); }
+  .continue-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+  .continue-btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
 
   /* ── prologue name input ── */
   .prologue-name {
@@ -304,42 +327,44 @@
   }
 
   .prologue-name label {
-    font-family: "VT323", monospace;
-    font-size: 0.75rem;
+    font-family: var(--font-ui);
+    font-size: 0.9rem;
     color: var(--text-muted);
     line-height: 1.8;
   }
 
   .prologue-name input {
-    background: #000;
+    background: #fffdf8;
     border: 2px solid var(--scene-accent);
-    color: var(--text);
-    font-family: "Noto Serif SC", serif;
-    font-size: 1.0rem;
-    padding: 6px 8px;
+    border-radius: 5px;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    padding: 8px 10px;
     width: 200px;
     outline: none;
-    box-shadow: 3px 3px 0 #000;
+    box-shadow: inset 0 1px 3px rgba(51, 41, 29, 0.1);
   }
 
-  .prologue-name input:focus { border-color: var(--accent); }
+  .prologue-name input:focus { border-color: var(--ink); box-shadow: 0 0 0 3px rgba(51, 41, 29, 0.15); }
 
   /* ── ending block ── */
   .ending-block {
     text-align: center;
     margin: 24px 0 36px;
     padding: 20px;
-    border: 3px solid var(--accent);
-    background: #000;
-    box-shadow: 5px 5px 0 rgba(255,215,0,0.2);
+    border: 2px solid var(--accent);
+    border-radius: 6px;
+    background: #fdf6e3;
+    box-shadow: 0 6px 16px rgba(138, 101, 22, 0.15);
   }
 
   .ending-block .ending-title {
-    font-family: "VT323", monospace;
-    font-size: clamp(1.0rem, 2.2vw, 1.3rem);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: clamp(1.1rem, 2.4vw, 1.4rem);
     color: var(--accent);
     margin: 0 0 8px;
-    text-shadow: 2px 2px 0 #000;
   }
 
   .ending-block .ending-sub {
@@ -362,22 +387,22 @@
   .glossary {
     margin-top: 40px;
     padding-top: 28px;
-    border-top: 3px solid var(--accent);
+    border-top: 2px solid var(--accent);
   }
 
   .glossary h2 {
-    font-family: "VT323", monospace;
-    font-size: clamp(1.0rem, 2.2vw, 1.25rem);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: clamp(1.15rem, 2.4vw, 1.4rem);
     color: var(--accent);
     margin: 0 0 6px;
-    text-shadow: 2px 2px 0 #000;
   }
 
   .glossary .sub {
     font-style: italic;
     color: var(--text-muted);
     margin: 0 0 26px;
-    font-size: 0.88rem;
+    font-size: 0.95rem;
   }
 
   .glossary-entry {
@@ -397,13 +422,14 @@
     font-style: italic;
     color: var(--text-muted);
     margin: 0 0 10px;
-    font-size: 0.92rem;
+    font-size: 0.95rem;
   }
 
   .glossary-entry .ge-row {
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     color: var(--text);
     margin: 0 0 4px;
+    line-height: 1.6;
   }
 
   .glossary-entry .ge-row b {
@@ -427,7 +453,8 @@
   /* ── chengyu tooltip ── */
   .chengyu-tip {
     cursor: help;
-    text-decoration: underline dotted var(--accent);
+    text-decoration: underline dotted var(--scene-accent);
+    text-decoration-thickness: 2px;
     text-underline-offset: 3px;
   }
 
@@ -436,14 +463,15 @@
     z-index: 100;
     pointer-events: none;
     display: none;
-    max-width: 280px;
-    background: #000;
-    color: #f0e6d3;
-    border: 3px solid var(--accent);
-    box-shadow: 4px 4px 0 #000;
+    max-width: 300px;
+    background: #fdf6e3;
+    color: var(--ink);
+    border: 2px solid var(--accent);
+    border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(51, 41, 29, 0.25);
     padding: 12px 14px;
-    font-family: "VT323", monospace;
-    font-size: 0.875rem;
+    font-family: var(--font-ui);
+    font-size: 0.95rem;
     line-height: 1.6;
   }
 
@@ -455,14 +483,14 @@
 
   #chengyu-tooltip td {
     padding: 2px 6px 2px 0;
-    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    border-bottom: 1px solid rgba(138, 101, 22, 0.2);
     vertical-align: top;
   }
 
   #chengyu-tooltip td:first-child {
     font-family: "Noto Serif SC", serif;
-    font-size: 0.9rem;
-    color: var(--accent);
+    font-size: 1rem;
+    color: #6f4e12;
     white-space: nowrap;
     padding-right: 10px;
   }
@@ -476,20 +504,44 @@
 
   #chengyu-tooltip .tip-translation {
     color: var(--accent);
-    border-top: 1px solid rgba(255, 215, 0, 0.3);
+    border-top: 1px solid rgba(138, 101, 22, 0.3);
     padding-top: 6px;
     margin-top: 2px;
     font-style: italic;
+    font-size: 0.88rem;
+  }
+
+  /* ── setback ("wrong turning") block ── */
+  .setback {
+    margin-top: 20px;
+    padding: 16px 18px;
+    border-left: 4px solid var(--accent-2);
+    border-radius: 4px;
+    background: rgba(194, 80, 42, 0.08);
+  }
+
+  .setback-label {
+    font-family: var(--font-ui);
+    font-weight: 700;
     font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    margin: 0 0 10px;
+  }
+
+  .setback p {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: var(--ink);
+    margin: 0 0 1em;
   }
 
   /* ── mobile ── */
   @media (max-width: 600px) {
-    .scroll { padding: 20px; margin: 0; border-left: 0; border-right: 0; box-shadow: none; }
-    header.title h1 { font-size: 1.0rem; }
-    .scene-title { font-size: 1.0rem; }
-    .choice { font-size: 0.875rem; }
-    .glossary h2 { font-size: 0.875rem; }
+    .scroll { padding: 20px; margin: 0; border-radius: 0; }
+    .scene-title { font-size: 1.25rem; }
+    .glossary h2 { font-size: 1.1rem; }
   }
 </style>
 </head>
